@@ -8,19 +8,23 @@ class Question{
     string options[4];
     char correct_option;
 
-    void ask() {
+    void ask()
+    {
         cout<< questext <<endl;
-        for (int i=0;i<4;i++){
+        for (int i=0;i<4;i++)
+        {
             cout<< options[i]<<endl;
         }
         cout << "Your answer (A/B/C/D): ";
     }
 
-    bool check_answer(char user_answer){
+    bool check_answer(char user_answer)
+    {
         return toupper(user_answer)==toupper(correct_option);
     }
 };
-void load_questions(Question questions[], int &numQuestions) {
+void load_questions(Question questions[], int &numQuestions)
+{
     numQuestions = 7; 
 
     questions[0].questext = "What is the capital of Nepal?";
@@ -72,24 +76,27 @@ void load_questions(Question questions[], int &numQuestions) {
     questions[6].options[3] = "D. 77";
     questions[6].correct_option = 'D';
 }
-void start_quiz() {
+void start_quiz()
+{
     Question questions[10];
     int numQuestions = 0;
     load_questions(questions, numQuestions);
 
     int score = 0;
 
-    for (int i = 0; i < numQuestions; i++) {
+    for (int i = 0; i < numQuestions; i++)
+    {
         cout << "\nQuestion " << (i + 1) << ":" << endl;
         questions[i].ask();
 
         char answer;
         cin >> answer;
 
-        if (questions[i].check_answer(answer)) {
+        if (questions[i].check_answer(answer))
+        {
             cout << "Yayyy Correct!" << endl;
             score++;
-        } else {
+        }else{
             cout << "Wrong! Correct answer was: " << questions[i].correct_option << endl;
         }
     }
